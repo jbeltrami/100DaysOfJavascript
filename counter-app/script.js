@@ -1,16 +1,12 @@
 const count = document.querySelector(".count");
-const add = document.querySelector(".add");
-const resetCount = document.querySelector(".reset");
-const subtract = document.querySelector(".subtract");
+const buttons = document.querySelector(".buttons");
 
-add.addEventListener("click", () => {
-  return (count.innerHTML = parseInt(count.innerHTML) + 1);
-});
-
-subtract.addEventListener("click", () => {
-  return (count.innerHTML = parseInt(count.innerHTML) - 1);
-});
-
-resetCount.addEventListener("click", () => {
-  return (count.innerHTML = 0);
+buttons.addEventListener("click", (e) => {
+  return e.target.classList.contains("add")
+    ? count.innerHTML++
+    : e.target.classList.contains("subtract")
+    ? count.innerHTML--
+    : e.target.classList.contains("reset")
+    ? (count.innerHTML = 0)
+    : null;
 });
